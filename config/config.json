@@ -70,6 +70,21 @@
       "access_via": ["Car"]
     },
     {
+      "id": "PathToTarkov_LHPath",
+      "size": 8,
+      "access_via": ["ShorelineLighthousePath"]
+    },
+    {
+      "id": "PathToTarkov_LHTunnel",
+      "size": 8,
+      "access_via": ["ShorelineLighthouseTunnel"]
+    },
+    {
+      "id": "PathToTarkov_ShorelineMountain_stash",
+      "size": 8,
+      "access_via": ["ShorelineNorthMoutains"]
+    },
+    {
       "id": "PathToTarkov_Boat_stash",
       "size": 8,
       "access_via": ["Boat"]
@@ -78,6 +93,11 @@
       "id": "PathToTarkov_WoodsFactoryGate_stash",
       "size": 12,
       "access_via": ["WoodsFactoryGate"]
+    },
+    {
+      "id": "PathToTarkov_TarkovRail_stash",
+      "size": 20,
+      "access_via": ["CustomsTarkovRail"]
     },
     {
       "id": "PathToTarkov_WoodsCustoms_stash",
@@ -113,7 +133,67 @@
       "id": "PathToTarkov_MechanicHideout_stash",
       "size": 22,
       "access_via": ["FactoryZB-1011", "FactoryZB-1012", "FactoryZB-1013"]
+    },
+    {
+      "id": "PathToTarkov_Pilgrim_stash",
+      "size": 8,
+      "access_via": ["PilgrimTrail"]
+    },
+    {
+      "id": "PathToTarkov_ReserveRail_stash",
+      "size": 16,
+      "access_via": ["MilitaryBaseRail"]
+    },
+    {
+      "id": "PathToTarkov_ScavWindow_stash",
+      "size": 8,
+      "access_via": ["ScavWindow"]
+    },
+    {
+      "id": "PathToTarkov_WoodsMilPath_stash",
+      "size": 12,
+      "access_via": ["WoodsMilitaryPath"]
+    },
+    {
+      "id": "PathToTarkov_Underpass_stash",
+      "size": 12,
+      "access_via": ["UnderpasstoLabs"]
+    },
+    {
+      "id": "PathToTarkov_sniper_stash",
+      "size": 20,
+      "access_via": ["SniperPath"]
+    },
+    {
+      "id": "PathToTarkov_EmercomStreet_stash",
+      "size": 8,
+      "access_via": ["EmercomToKlimov"]
+    },
+    {
+      "id": "PathToTarkov_sewer_stash",
+      "size": 8,
+      "access_via": ["ManHoleToReserve"]
+    },
+    {
+      "id": "PathToTarkov_sewer_stash",
+      "size": 8,
+      "access_via": ["ManHoleToReserve"]
+    },
+    {
+      "id": "PathToTarkov_PrisonGuardsLocer_stash",
+      "size": 8,
+      "access_via": ["CatacombsHangar"]
+    },
+    {
+      "id": "PathToTarkov_Evac_stash",
+      "size": 8,
+      "access_via": ["StreetsEvac"]
     }
+
+
+
+
+
   ],
   "traders_config": {
     "54cb50c76803fa8b248b4571": {
