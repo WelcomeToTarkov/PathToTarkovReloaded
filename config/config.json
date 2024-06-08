@@ -1,14 +1,14 @@
 {
   "enabled": true,
   "debug": true,
-  "initial_offraid_position": "FactoryZB-1011",
+  "initial_offraid_position": "PlayerHideout",
   "reset_offraid_position_on_player_die": true,
-  "traders_access_restriction": false,
-  "hideout_multistash_enabled": false,
+  "traders_access_restriction": true,
+  "hideout_multistash_enabled": true,
   "vanilla_exfils_requirements": false,
   "laboratory_access_restriction": true,
   "laboratory_access_via": ["Car"],
-  "player_scav_move_offraid_position": true,
+  "player_scav_move_offraid_position": false,
   "workbench_always_enabled": true,
   "bypass_keep_found_in_raid_tweak": false,
   "bypass_uninstall_procedure": false,
@@ -33,7 +33,10 @@
         "FactoryZB-1011",
         "FactoryZB-1012",
         "FactoryZB-1013",
-        "Car"
+        "Car",
+        "PlayerHideout",
+        "TherapistHideout",
+        "EmercomToKlimov"
       ]
     },
     "energy": {
@@ -41,7 +44,10 @@
         "FactoryZB-1011",
         "FactoryZB-1012",
         "FactoryZB-1013",
-        "WoodsCustoms"
+        "WoodsCustoms",
+        "PlayerHideout",
+        "TherapistHideout",
+        "EmercomToKlimov"
       ]
     },
     "health": {
@@ -49,24 +55,23 @@
         "FactoryZB-1011",
         "FactoryZB-1012",
         "FactoryZB-1013",
-        "WoodsFactoryGate"
+        "WoodsFactoryGate",
+        "PlayerHideout",
+        "TherapistHideout",
+        "EmercomToKlimov"
       ]
     }
   },
-  "hideout_main_stash_access_via": [
-    "FactoryZB-1011",
-    "FactoryZB-1012",
-    "FactoryZB-1013"
-  ],
+  "hideout_main_stash_access_via": ["PlayerHideout", "TherapistHideout"],
   "hideout_secondary_stashes": [
     {
       "id": "PathToTarkov_Car_stash",
-      "size": 18,
+      "size": 16,
       "access_via": ["Car"]
     },
     {
       "id": "PathToTarkov_Boat_stash",
-      "size": 12,
+      "size": 8,
       "access_via": ["Boat"]
     },
     {
@@ -76,13 +81,18 @@
     },
     {
       "id": "PathToTarkov_WoodsCustoms_stash",
-      "size": 8,
+      "size": 12,
       "access_via": ["WoodsCustoms"]
     },
     {
       "id": "PathToTarkov_InterchangeCustoms_stash",
       "size": 8,
       "access_via": ["InterchangeCustoms"]
+    },
+    {
+      "id": "PathToTarkov_Ragman_stash",
+      "size": 10,
+      "access_via": ["ShorelineCustoms"]
     },
     {
       "id": "PathToTarkov_WoodsReserveShoreline_stash",
@@ -98,6 +108,11 @@
       "id": "PathToTarkov_SafeRoom_stash",
       "size": 22,
       "access_via": ["SafeRoom"]
+    },
+    {
+      "id": "PathToTarkov_MechanicHideout_stash",
+      "size": 22,
+      "access_via": ["FactoryZB-1011", "FactoryZB-1012", "FactoryZB-1013"]
     }
   ],
   "traders_config": {
@@ -117,7 +132,8 @@
         "jp": "Between woods and factory",
         "kr": "Between woods and factory",
         "pl": "Between woods and factory",
-        "po": "Between woods and factory"
+        "po": "Between woods and factory",
+        "ru": "Между лесом и заводом"
       },
       "access_via": ["WoodsFactoryGate"]
     },
@@ -125,21 +141,22 @@
       "// Trader name": "Therapist",
       "override_description": true,
       "location_description": {
-        "ch": "Between woods and factory",
-        "cz": "Between woods and factory",
-        "en": "Between woods and factory",
-        "es-mx": "Between woods and factory",
-        "es": "Between woods and factory",
-        "fr": "Entre les bois et l'usine",
-        "ge": "Between woods and factory",
-        "hu": "Between woods and factory",
-        "it": "Between woods and factory",
-        "jp": "Between woods and factory",
-        "kr": "Between woods and factory",
-        "pl": "Between woods and factory",
-        "po": "Between woods and factory"
+        "ch": "在 “地面零点 ”的拾荒者营地",
+        "cz": "V táboře mrchožroutů v Ground Zero",
+        "en": "In the Scav Camp at Ground Zero",
+        "es-mx": "En el campamento de carroñeros de la Zona Cero",
+        "es": "En el campamento de carroñeros de la Zona Cero",
+        "fr": "Dans le camp de scav à Ground Zero",
+        "ge": "Im Scav Camp am Ground Zero",
+        "hu": "A Scav táborban a Ground Zero-nál",
+        "it": "Nel campo Scav a Ground Zero",
+        "jp": "グラウンド・ゼロのスカブ・キャンプにて",
+        "kr": "그라운드 제로에 있는 스캐브 캠프에서",
+        "pl": "W obozie Scav w Ground Zero",
+        "po": "No Campo de Escavação no Ground Zero",
+        "ru": "В лагере диких на эпицентре"
       },
-      "access_via": ["WoodsFactoryGate"]
+      "access_via": ["TherapistHideout"]
     },
     "5a7c2eca46aef81a7ca2145d": {
       "// Trader name": "Mechanic",
@@ -157,7 +174,8 @@
         "jp": "In ZB-* bunkers",
         "kr": "In ZB-* bunkers",
         "pl": "In ZB-* bunkers",
-        "po": "In ZB-* bunkers"
+        "po": "In ZB-* bunkers",
+        "ru": "В бункерах ЗБ-*"
       },
       "access_via": ["FactoryZB-1011", "FactoryZB-1012", "FactoryZB-1013"]
     },
@@ -177,9 +195,10 @@
         "jp": "Between woods and customs",
         "kr": "Between woods and customs",
         "pl": "Between woods and customs",
-        "po": "Between woods and customs"
+        "po": "Between woods and customs",
+        "ru": "Между берегом и таможней"
       },
-      "access_via": ["WoodsCustoms"]
+      "access_via": ["ShorelineCustoms"]
     },
     "5ac3b934156ae10c4430e83c": {
       "// Trader name": "Ragman",
@@ -197,9 +216,10 @@
         "jp": "Between interchange and customs",
         "kr": "Between interchange and customs",
         "pl": "Between interchange and customs",
-        "po": "Between interchange and customs"
+        "po": "Between interchange and customs",
+        "ru":"Между развязкой и таможней"
       },
-      "access_via": ["InterchangeCustoms"]
+      "access_via": ["StreetsEvac"]
     },
     "5c0647fdd443bc2504c2d371": {
       "// Trader name": "Jaeger",
@@ -217,7 +237,8 @@
         "jp": "In car",
         "kr": "In car",
         "pl": "In car",
-        "po": "In car"
+        "po": "In car",
+        "ru": "В машине"
       },
       "access_via": ["Car"]
     },
@@ -237,9 +258,11 @@
         "jp": "In boat",
         "kr": "In boat",
         "pl": "In boat",
-        "po": "In boat"
+        "po": "In boat",
+        "ru": "На блокпосте ООН"
+
       },
-      "access_via": ["Boat"]
+      "access_via": ["WoodsCustoms"]
     },
     "579dc571d53a0658a154fbec": {
       "// Trader name": "Fence",
@@ -256,7 +279,7 @@
       },
       "repair_always_enabled": true,
       "repair_config": {
-        "quality": "1",
+        "quality": 1,
         "currency": "5449016a4bdc2d6f028b456f",
         "currency_coefficient": 12,
         "repair_price_coef": 0
@@ -280,53 +303,10 @@
         "jp": "Somewhere between woods, military reserve and shoreline",
         "kr": "Somewhere between woods, military reserve and shoreline",
         "pl": "Somewhere between woods, military reserve and shoreline",
-        "po": "Somewhere between woods, military reserve and shoreline"
+        "po": "Somewhere between woods, military reserve and shoreline",
+        "ru": "Где-то между лесом, резервом и берегом"
       },
       "access_via": ["WoodsReserveShoreline"]
-    },
-    "GearGal": {
-      "// mod integration for GearGal": true,
-      "// GearGal is available after extracting from Crossroads (cutstoms map) or Railway Exfil (interchange map)": true,
-      "disable_warning": true,
-      "override_description": true,
-      "location_description": {
-        "ch": "Between interchange and customs",
-        "cz": "Between interchange and customs",
-        "en": "Between interchange and customs",
-        "es-mx": "Between interchange and customs",
-        "es": "Between interchange and customs",
-        "fr": "Entre l'échangeur et les douanes",
-        "ge": "Between interchange and customs",
-        "hu": "Between interchange and customs",
-        "it": "Between interchange and customs",
-        "jp": "Between interchange and customs",
-        "kr": "Between interchange and customs",
-        "pl": "Between interchange and customs",
-        "po": "Between interchange and customs"
-      },
-      "access_via": ["InterchangeCustoms"]
-    },
-    "armalite": {
-      "// mod integration for AR Shoppe Unlimited": true,
-      "// ArmaLite is available after extracting from RUAF (cutstoms map) or North UN Roadblock (woods map)": true,
-      "disable_warning": true,
-      "override_description": true,
-      "location_description": {
-        "ch": "Between woods and customs",
-        "cz": "Between woods and customs",
-        "en": "Between woods and customs",
-        "es-mx": "Between woods and customs",
-        "es": "Between woods and customs",
-        "fr": "Entre les bois et les douanes",
-        "ge": "Between woods and customs",
-        "hu": "Between woods and customs",
-        "it": "Between woods and customs",
-        "jp": "Between woods and customs",
-        "kr": "Between woods and customs",
-        "pl": "Between woods and customs",
-        "po": "Between woods and customs"
-      },
-      "access_via": ["WoodsCustoms"]
     },
     "gunsmith": {
       "// mod integration for Gunsmith": true,
@@ -346,163 +326,125 @@
         "jp": "Between lighthouse and shoreline",
         "kr": "Between lighthouse and shoreline",
         "pl": "Between lighthouse and shoreline",
-        "po": "Between lighthouse and shoreline"
+        "po": "Between lighthouse and shoreline",
+        "ru": "Между маяком и берегом"
       },
       "access_via": ["ShorelineLighthouseTunnel"]
     },
-    "operator": {
-      "// mod integration for Alex-AIO": true,
-      "// Operator is available after extracting from Scav lands (reserve map)": true,
+    "HarryHideout": {
+      "// mod integration for HarryHideout": true,
+      "// HarryHideout is available at PlayerHideout": true,
       "disable_warning": true,
       "override_description": true,
       "location_description": {
-        "ch": "Between customs and military reserve",
-        "cz": "Between customs and military reserve",
-        "en": "Between customs and military reserve",
-        "es-mx": "Between customs and military reserve",
-        "es": "Between customs and military reserve",
-        "fr": "Entre les douanes et la base militaire",
-        "ge": "Between customs and military reserve",
-        "hu": "Between customs and military reserve",
-        "it": "Between customs and military reserve",
-        "jp": "Between customs and military reserve",
-        "kr": "Between customs and military reserve",
-        "pl": "Between customs and military reserve",
-        "po": "Between customs and military reserve"
+        "ch": "在藏身处附近的地面零点",
+        "cz": "Na Ground Zero poblíž úkrytu",
+        "en": "On Ground Zero near the hideout",
+        "es-mx": "Between lighthouse and shoreline",
+        "es": "En la Zona Cero cerca del escondite",
+        "fr": "À Ground Zero, près de la cachette",
+        "ge": "Am Ground Zero in der Nähe des Verstecks",
+        "hu": "A Ground Zero-n, a rejtekhely közelében",
+        "it": "A Ground Zero, vicino al nascondiglio",
+        "jp": "アジト近くのグラウンドゼロで",
+        "kr": "은신처 근처 그라운드 제로에서",
+        "pl": "Na Ground Zero w pobliżu kryjówki",
+        "po": "No Ground Zero, perto do esconderijo",
+        "ru": "В эпицентре рядом с убежищем"
       },
-      "access_via": ["CustomsMilitaryBaseCP"]
+      "access_via": ["PlayerHideout"]
     },
-    "Elder_Temporal_Id": {
-      "// mod integration for Andrudis-QuestManiac": true,
-      "// Trader name": "Elder",
+    "ArtemTrader": {
+      "// mod integration for ArtemTrader": true,
+      "// ArtemTrader is available at Boat": true,
       "disable_warning": true,
       "override_description": true,
       "location_description": {
-        "ch": "In ZB-* bunkers",
-        "cz": "In ZB-* bunkers",
-        "en": "In ZB-* bunkers",
-        "es-mx": "In ZB-* bunkers",
-        "es": "In ZB-* bunkers",
-        "fr": "Dans les bunkers ZB-*",
-        "ge": "In ZB-* bunkers",
-        "hu": "In ZB-* bunkers",
-        "it": "In ZB-* bunkers",
-        "jp": "In ZB-* bunkers",
-        "kr": "In ZB-* bunkers",
-        "pl": "In ZB-* bunkers",
-        "po": "In ZB-* bunkers"
-      },
-      "access_via": ["FactoryZB-1011", "FactoryZB-1012", "FactoryZB-1013"]
-    },
-    "Khokhol_Temporal_Id": {
-      "// mod integration for Andrudis-QuestManiac": true,
-      "// Trader name": "Khokol",
-      "disable_warning": true,
-      "override_description": true,
-      "location_description": {
-        "ch": "In ZB-* bunkers",
-        "cz": "In ZB-* bunkers",
-        "en": "In ZB-* bunkers",
-        "es-mx": "In ZB-* bunkers",
-        "es": "In ZB-* bunkers",
-        "fr": "Dans les bunkers ZB-*",
-        "ge": "In ZB-* bunkers",
-        "hu": "In ZB-* bunkers",
-        "it": "In ZB-* bunkers",
-        "jp": "In ZB-* bunkers",
-        "kr": "In ZB-* bunkers",
-        "pl": "In ZB-* bunkers",
-        "po": "In ZB-* bunkers"
-      },
-      "access_via": ["FactoryZB-1011", "FactoryZB-1012", "FactoryZB-1013"]
-    },
-    "Warden_Temporal_Id": {
-      "// mod integration for Andrudis-QuestManiac": true,
-      "// Trader name": "Warden",
-      "disable_warning": true,
-      "override_description": true,
-      "location_description": {
-        "ch": "In car",
-        "cz": "In car",
-        "en": "In car",
-        "es-mx": "In car",
-        "es": "In car",
-        "fr": "En voiture",
-        "ge": "In car",
-        "hu": "In car",
-        "it": "In car",
-        "jp": "In car",
-        "kr": "In car",
-        "pl": "In car",
-        "po": "In car"
-      },
-      "access_via": ["Car"]
-    },
-    "LabRat_Temporal_Id": {
-      "// mod integration for Andrudis-QuestManiac": true,
-      "// Trader name": "Lab Rat",
-      "disable_warning": true,
-      "override_description": true,
-      "location_description": {
-        "ch": "In car",
-        "cz": "In car",
-        "en": "In car",
-        "es-mx": "In car",
-        "es": "In car",
-        "fr": "En voiture",
-        "ge": "In car",
-        "hu": "In car",
-        "it": "In car",
-        "jp": "In car",
-        "kr": "In car",
-        "pl": "In car",
-        "po": "In car"
-      },
-      "access_via": ["Car"]
-    },
-    "Bashkir_Temporal_Id": {
-      "// mod integration for Andrudis-QuestManiac": true,
-      "// Trader name": "Bashkir",
-      "disable_warning": true,
-      "override_description": true,
-      "location_description": {
-        "ch": "In boat",
-        "cz": "In boat",
-        "en": "In boat",
-        "es-mx": "In boat",
-        "es": "In boat",
-        "fr": "En bateau",
-        "ge": "In boat",
-        "hu": "In boat",
-        "it": "In boat",
-        "jp": "In boat",
-        "kr": "In boat",
-        "pl": "In boat",
-        "po": "In boat"
+        "ch": "On a boat",
+        "cz": "On a boat",
+        "en": "On a boat",
+        "es-mx": "On a boat",
+        "es": "On a boat",
+        "fr": "On a boat",
+        "ge": "On a boat",
+        "hu": "On a boat",
+        "it": "On a boat",
+        "jp": "On a boat",
+        "kr": "On a boat",
+        "pl": "On a boat",
+        "po": "On a boat",
+        "ru": "В лодке"
       },
       "access_via": ["Boat"]
     },
-    "Colonel_Temporal_Id": {
-      "// mod integration for Andrudis-QuestManiac": true,
-      "// Trader name": "Colonel",
+    "lotus": {
+      "// mod integration for lotus": true,
+      "// lotus is available at StreetsEvac": true,
       "disable_warning": true,
       "override_description": true,
       "location_description": {
-        "ch": "Between interchange and military reserve",
-        "cz": "Between interchange and military reserve",
-        "en": "Between interchange and military reserve",
-        "es-mx": "Between interchange and military reserve",
-        "es": "Between interchange and military reserve",
-        "fr": "Between interchange and military reserve",
-        "ge": "Between interchange and military reserve",
-        "hu": "Between interchange and military reserve",
-        "it": "Between interchange and military reserve",
-        "jp": "Between interchange and military reserve",
-        "kr": "Between interchange and military reserve",
-        "pl": "Between interchange and military reserve",
-        "po": "Between interchange and military reserve"
+        "ch": "Between the City and Interchange",
+        "cz": "Between the City and Interchange",
+        "en": "Between the City and Interchange",
+        "es-mx": "Between the City and Interchange",
+        "es": "Between the City and Interchange",
+        "fr": "Between the City and Interchange",
+        "ge": "Between the City and Interchange",
+        "hu": "Between the City and Interchange",
+        "it": "Between the City and Interchange",
+        "jp": "Between the City and Interchange",
+        "kr": "Between the City and Interchange",
+        "pl": "Between the City and Interchange",
+        "po": "Between the City and Interchange",
+        "ru": "Между городом и развязкой"
       },
-      "access_via": ["SafeRoom"]
+      "access_via": ["StreetsEvac"]
+    },
+    "Scorpion": {
+      "// mod integration for Scorpion": true,
+      "// Scorpion is available at MilitaryBaseRail": true,
+      "disable_warning": true,
+      "override_description": true,
+      "location_description": {
+        "ch": "By the military railroad",
+        "cz": "By the military railroad",
+        "en": "By the military railroad",
+        "es-mx": "By the military railroad",
+        "es": "By the military railroad",
+        "fr": "By the military railroad",
+        "ge": "By the military railroad",
+        "hu": "By the military railroad",
+        "it": "By the military railroad",
+        "jp": "By the military railroad",
+        "kr": "By the military railroad",
+        "pl": "By the military railroad",
+        "po": "By the military railroad",
+        "ru": "Рядом с военной железной дорогой"
+      },
+      "access_via": ["MilitaryBaseRail"]
+    },
+    "themachine": {
+      "// mod integration for themachine": true,
+      "// themachine is available at MilitaryBaseRail": true,
+      "disable_warning": true,
+      "override_description": true,
+      "location_description": {
+        "ch": "By the military railroad",
+        "cz": "By the military railroad",
+        "en": "By the military railroad",
+        "es-mx": "By the military railroad",
+        "es": "By the military railroad",
+        "fr": "By the military railroad",
+        "ge": "By the military railroad",
+        "hu": "By the military railroad",
+        "it": "By the military railroad",
+        "jp": "By the military railroad",
+        "kr": "By the military railroad",
+        "pl": "By the military railroad",
+        "po": "By the military railroad",
+        "ru": "Рядом с военной железной дорогой"
+      },
+      "access_via": ["InterchangeCustoms"]
     }
   },
   "exfiltrations": {
@@ -533,7 +475,11 @@
       "Sniper Roadblock": "ShorelineCustoms",
       "Smuggler's Boat": "Boat",
       "RUAF Roadblock": "WoodsCustoms",
-      "Crossroads": "InterchangeCustoms"
+      "Crossroads": "InterchangeCustoms",
+      "Old Gas Station": "PilgrimTrail",
+      "Railroad To Tarkov": "CustomsTarkovRail",
+      "Administration Gate": "WoodsMilitaryPath",
+      "Factory Far Corner": "ScavWindow"    
     },
     "woods": {
       "un-sec": "WoodsCustoms",
@@ -541,21 +487,26 @@
       "ZB-014": "FactoryZB-1013",
       "Outskirts": "WoodsReserveShoreline",
       "The Boat": "Boat",
-      "South V-Ex": "Car"
+      "South V-Ex": "Car",
+      "RUAF Gate": "WoodsMilitaryPath"
     },
     "rezervbase": {
       "EXFIL_ScavCooperation": "CustomsMilitaryBaseCP",
+      "EXFIL_Train": "MilitaryBaseRail",
       "Exit1": "WoodsReserveShoreline",
       "Exit2": "WoodsReserveShoreline",
       "Exit3": "WoodsReserveShoreline",
       "Exit4": "WoodsReserveShoreline",
       "Alpinist": "ShorelineNorthMoutains",
-      "EXFIL_Bunker_D2": "SafeRoom"
+      "EXFIL_Bunker_D2": "SafeRoom",
+      "EXFIL_vent": "ManHoleToReserve"
     },
     "interchange": {
       "PP Exfil": "Car",
-      "NW Exfil": "InterchangeCustoms",
-      "Saferoom Exfil": "SafeRoom"
+      "Hole Exfill": "InterchangeCustoms",
+      "Saferoom Exfil": "SafeRoom",
+      "NW Exfil": "CustomsTarkovRail",
+      "SE Exfil":"StreetsEvac"
     },
     "shoreline": {
       "exit_scav_NORTH_fencepassage": "ShorelineNorthMoutains",
@@ -570,19 +521,28 @@
       "tunnel_shared": "ShorelineLighthouseTunnel"
     },
     "tarkovstreets": {
-      "E1": "Car",
-      "E2": "Car",
+      "E1": "UnderpasstoLabs",
+      "E4": "StreetsEvac",
       "E7_car": "Car",
-      "E9_sniper": "Car"
+      "E9_sniper": "SniperPath",
+      "scav_e1": "EmercomToKlimov",
+      "scav_e2": "CatacombsHangar",
+      "scav_e4": "ManHoleToReserve"
     },
     "laboratory": {
-      "lab_Parking_Gate": "Car",
-      "lab_Hangar_Gate": "Car",
+      "lab_Parking_Gate": "UnderpasstoLabs",
+      "lab_Hangar_Gate": "CatacombsHangar",
       "lab_Elevator_Med": "Car",
       "lab_Under_Storage_Collector": "Car",
       "lab_Elevator_Main": "Car",
-      "lab_Vent": "Car",
       "lab_Elevator_Cargo": "Car"
+    },
+    "sandbox": {
+      "Unity_free_exit": "EmercomToKlimov",
+      "Sandbox_VExit": "Car",
+      "Nakatani_stairs_free_exit": "PlayerHideout",
+      "Sniper_exit": "SniperPath",
+      "Scav_coop_exit": "TherapistHideout"
     }
   },
   "infiltrations": {
@@ -605,6 +565,10 @@
     },
     "InterchangeCustoms": {
       "bigmap": ["Crossroads"],
+      "interchange": ["Scav Camp"]
+    },
+    "CustomsTarkovRail": {
+      "bigmap": ["MallTrain"],
       "interchange": ["Railway"]
     },
     "WoodsCustoms": {
@@ -626,15 +590,20 @@
       "interchange": ["Car at Power Station"],
       "woods": ["Bridge Car"],
       "lighthouse": ["Lighthouse Vehicle Extract"],
-      "tarkovstreets": ["Primorsky Vehicle Extract"]
+      "tarkovstreets": ["Primorsky Vehicle Extract"],
+      "sandbox": ["hideout_gz"]
     },
     "CustomsMilitaryBaseCP": {
       "bigmap": ["Military Base CP"],
       "rezervbase": ["Scav lands"]
     },
+    "PilgrimTrail":{
+      "bigmap": ["PraveenGasoline"],
+      "tarkovstreets": ["Crane"]
+    },
     "MilitaryBaseRail": {
       "bigmap": ["Railroad To Military Base"],
-      "rezervbase": ["Scav lands rail"]
+      "rezervbase": ["Train Station"]
     },
     "FactoryZB-1013": {
       "bigmap": ["ZB-1013"],
@@ -652,14 +621,54 @@
       "factory4_day": ["Cellars"],
       "factory4_night": ["Cellars"]
     },
+    "ScavWindow":{
+      "bigmap": ["OfficePath"],
+      "factory4_day":["OfficeWindow"],
+      "factory4_night": ["OfficeWindow"]
+    },
     "WoodsFactoryGate": {
       "woods": ["Factory Gate"],
       "factory4_day": ["Gate 0"],
       "factory4_night": ["Gate 0"]
     },
+    "WoodsMilitaryPath": {
+      "woods":["RUAFRoadblock"],
+      "bigmap": ["RUAFAdmin"]
+    },
     "SafeRoom": {
       "rezervbase": ["D-2"],
       "interchange": ["Safe Room"]
+    },
+    "TherapistHideout": {
+      "sandbox": ["Crow Hideout"]
+    },
+    "PlayerHideout": {
+      "sandbox": ["hideout_gz"]
+    },
+    "EmercomToKlimov": {
+      "sandbox": ["Crow Hideout"],
+      "tarkovstreets": ["Basement Descent"]
+    },
+    "SniperPath": {
+      "sandbox": ["From Streets"],
+      "tarkovstreets": ["Klimov Street"]
+    },
+    "UnderpasstoLabs": {
+      "tarkovstreets": ["Underpass"],
+      "laboratory": ["Parking Gate"]
+    },
+    "ManHoleToReserve": {
+      "tarkovstreets": ["Streets Manhole"],
+      "rezervbase": ["Reserve Manhole"]
+    },
+    "StreetsEvac": {
+      "tarkovstreets": ["Evacuation Zone"],
+      "interchange": ["EmercomMall"],
+      "bigmap": ["Old Gas Scav"]
+    },
+    "CatacombsHangar": {
+      "tarkovstreets": ["Catacombs"],
+      "laboratory": ["Hangar Gate"]
     }
   }
 }

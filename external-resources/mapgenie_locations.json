@@ -267,6 +267,26 @@
       "description": "D-2"
     }
   ],
+  "sandbox": [
+    {
+      "description": "Nakatani Basement Stairs"
+    },
+    {
+      "description": "Police Cordon V-Ex"
+    },
+    {
+      "description": "Emercom Checkpoint"
+    },
+    {
+      "description": "Mira Ave"
+    },
+    {
+      "description": "Sniper_exit"
+    },
+    {
+      "description": "Scav Checkpoint (Co-op)"
+    }
+  ],
   "shoreline": [
     {
       "id": 26116,

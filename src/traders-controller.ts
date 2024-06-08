@@ -30,7 +30,7 @@ export class TradersController {
       quest._id === JAEGER_INTRO_QUEST &&
       quest.QuestName === "Introduction"
     ) {
-      quest.rewards.Success = quest.rewards.Success.filter(
+      quest.rewards.Success = quest.rewards.Success?.filter(
         (payload) => payload.type !== "TraderUnlock"
       );
     }

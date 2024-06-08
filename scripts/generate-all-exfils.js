@@ -59,7 +59,16 @@ const getMapGenieMapName = (mapName) => {
 };
 
 const resolveMapGenieLocationId = (mapName, exitResolvedName) => {
-  const mapLocation = MAPGENIE_LOCATIONS[mapName].find(
+  const mapLocations = MAPGENIE_LOCATIONS[mapName];
+
+  if (!mapLocations) {
+    console.error(
+      `Error: map name '${mapName}' does not exist in MAPGENIE_LOCATIONS`
+    );
+    return null;
+  }
+
+  const mapLocation = mapLocations.find(
     (l) => l.description.toLowerCase() === exitResolvedName.toLowerCase()
   );
 

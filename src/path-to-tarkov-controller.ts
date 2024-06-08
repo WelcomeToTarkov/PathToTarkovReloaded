@@ -1,5 +1,8 @@
 import type { PreAkiModLoader } from "@spt-aki/loaders/PreAkiModLoader";
-import type { BodyHealth, Effects } from "@spt-aki/models/eft/common/IGlobals";
+import type {
+  IBodyHealth,
+  IEffects,
+} from "@spt-aki/models/eft/common/IGlobals";
 import type { SpawnPointParam } from "@spt-aki/models/eft/common/ILocationBase";
 import type { ILogger } from "@spt-aki/models/spt/utils/ILogger";
 import type { ConfigServer } from "@spt-aki/servers/ConfigServer";
@@ -16,7 +19,6 @@ import type {
 import { MAPLIST, PRAPOR_ID } from "./config";
 
 import type { EntryPoints, StaticRoutePeeker } from "./helpers";
-import { isLuasCSPModLoaded } from "./helpers";
 
 import {
   changeRestrictionsInRaid,
@@ -39,23 +41,23 @@ class OffraidRegenController {
   // saved values
   private energy_value: number | null = null;
   private hydration_value: number | null = null;
-  private bodyhealth_values: Partial<BodyHealth> = {};
+  private bodyhealth_values: Partial<IBodyHealth> = {};
 
   constructor(getConfig: ConfigGetter, private db: DatabaseServer) {
     this.getRegenConfig = () => getConfig().offraid_regen_config;
   }
 
-  private _getEmptyBodyHealthValues(): BodyHealth {
-    const result: Partial<BodyHealth> = {};
+  private _getEmptyBodyHealthValues(): IBodyHealth {
+    const result: Partial<IBodyHealth> = {};
 
     Object.keys(this.bodyhealth_values).forEach((bodyPart) => {
-      result[bodyPart as keyof BodyHealth] = { Value: 0 };
+      result[bodyPart as keyof IBodyHealth] = { Value: 0 };
     });
 
-    return result as BodyHealth;
+    return result as IBodyHealth;
   }
 
-  private get regen_db(): Effects["Regeneration"] {
+  private get regen_db(): IEffects["Regeneration"] {
     const regen =
       this.db.getTables().globals?.config.Health.Effects.Regeneration;
 
@@ -74,8 +76,8 @@ class OffraidRegenController {
     this.hydration_value = this.regen_db.Hydration;
 
     Object.keys(this.regen_db.BodyHealth).forEach((bodyPart) => {
-      this.bodyhealth_values[bodyPart as keyof BodyHealth] = {
-        Value: this.regen_db.BodyHealth[bodyPart as keyof BodyHealth].Value,
+      this.bodyhealth_values[bodyPart as keyof IBodyHealth] = {
+        Value: this.regen_db.BodyHealth[bodyPart as keyof IBodyHealth].Value,
       };
     });
   }
@@ -121,7 +123,7 @@ class OffraidRegenController {
       return;
     }
 
-    this.regen_db.BodyHealth = this.bodyhealth_values as BodyHealth;
+    this.regen_db.BodyHealth = this.bodyhealth_values as IBodyHealth;
     this.regen_health_enabled = true;
   }
 
@@ -224,10 +226,31 @@ export class PathToTarkovController {
     const traders = this.db.getTables().traders ?? {};
     const praporTrader = traders?.[PRAPOR_ID];
 
+    if (!praporTrader || !praporTrader.dialogue) {
+      throw new Error("Prapor trader or its dialogue property is missing.");
+    }
+
     Object.keys(traders).forEach((traderId) => {
       const trader = traders?.[traderId];
-      if (trader && !trader.dialogue) {
-        trader.dialogue = praporTrader?.dialogue;
+      if (trader) {
+        if (!trader.dialogue) {
+          trader.dialogue = praporTrader.dialogue;
+        } else {
+          if (
+            !trader.dialogue.insuranceStart ||
+            trader.dialogue.insuranceStart.length === 0
+          ) {
+            trader.dialogue.insuranceStart =
+              praporTrader.dialogue?.insuranceStart ?? [];
+          }
+          if (
+            !trader.dialogue.insuranceFound ||
+            trader.dialogue.insuranceFound.length === 0
+          ) {
+            trader.dialogue.insuranceFound =
+              praporTrader.dialogue?.insuranceFound ?? [];
+          }
+        }
       }
     });
   }
@@ -240,15 +263,6 @@ export class PathToTarkovController {
     }
 
     const LUAS_CSP_ROUTE = "/client/locations";
-
-    if (isLuasCSPModLoaded(this.modLoader)) {
-      this.debug(
-        `Lua's Custom Spawn Point detected, hijack '${LUAS_CSP_ROUTE}' route`
-      );
-    } else {
-      this.debug("Lua's Custom Spawn Point not detected.");
-      return;
-    }
 
     this.staticRouterPeeker.watchRoute(
       LUAS_CSP_ROUTE,

@@ -63,7 +63,6 @@
 | "Outskirts Water" | Scav Bridge | [link](https://mapgenie.io/tarkov/maps/woods?locationIds=65035) |
 | "Mountain Stash" | Mountain Stash | [link](https://mapgenie.io/tarkov/maps/woods?locationIds=24859) |
 | "West Border" | Eastern Rocks | [link](https://mapgenie.io/tarkov/maps/woods?locationIds=24666) |
-| "Old Station" | Old Station | [link](https://mapgenie.io/tarkov/maps/woods?locationIds=24854) |
 | "Scav House" | Scav House | [link](https://mapgenie.io/tarkov/maps/woods?locationIds=24870) |
 | "The Boat" | Boat | [link](https://mapgenie.io/tarkov/maps/woods?locationIds=24869) |
 | "Dead Man's Place" | Dead Man's Place | [link](https://mapgenie.io/tarkov/maps/woods?locationIds=24868) |
@@ -79,7 +78,6 @@
 | "Road_at_railbridge" | Railway Bridge | [link](https://mapgenie.io/tarkov/maps/shoreline?locationIds=151043) |
 | "Adm Basement" | Admin Basement | [link](https://mapgenie.io/tarkov/maps/shoreline?locationIds=28239) |
 | "RWing Gym Entrance" | East Wing Gym Entrance | [link](https://mapgenie.io/tarkov/maps/shoreline?locationIds=28240) |
-| "South Fence Passage" | North Fence Passage | [link](https://mapgenie.io/tarkov/maps/shoreline?locationIds=26120) |
 | "Ruined House Fence" | Ruined House Fence | [link](https://mapgenie.io/tarkov/maps/shoreline?locationIds=26118) |
 | "Svetliy Dead End" | Svetliy Dead End | [link](https://mapgenie.io/tarkov/maps/shoreline?locationIds=26117) |
 | "Wrecked Road" | Ruined Road | [link](https://mapgenie.io/tarkov/maps/shoreline?locationIds=26323) |
@@ -114,13 +112,16 @@
 | "SCAV_Underboat_Hideout" | Hideout Under the Landing Stage | [link](https://mapgenie.io/tarkov/maps/lighthouse?locationIds=152325) |
 | "Scav_Coastal_South" | Southern Road Landslide | [link](https://mapgenie.io/tarkov/maps/lighthouse?locationIds=152329) |
 
+## Ground Zero
+|identifier|description|mapgenie.io|
+|----------|-----------|-----------|
+
+
 ## Streets of Tarkov
 |identifier|description|mapgenie.io|
 |----------|-----------|-----------|
-| "E1" | Underpass | [link](https://mapgenie.io/tarkov/maps/streets?locationIds=247828) |
 | "E2" | Sewer River | [link](https://mapgenie.io/tarkov/maps/streets?locationIds=247839) |
 | "E3" | Damaged House | [link](https://mapgenie.io/tarkov/maps/streets?locationIds=247837) |
-| "E4" | Evacuation Zone | [link](https://mapgenie.io/tarkov/maps/streets?locationIds=247833) |
 | "E5" | Collapsed Crane | [link](https://mapgenie.io/tarkov/maps/streets?locationIds=247831) |
 | "E6" | Scav Checkpoint | [link](https://mapgenie.io/tarkov/maps/streets?locationIds=247830) |
 | "E7_car" | Primorsky Ave Taxi V-Ex | [link](https://mapgenie.io/tarkov/maps/streets?locationIds=247835) |

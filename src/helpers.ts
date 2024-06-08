@@ -45,6 +45,7 @@ export const createSpawnPoint = (
     Rotation: rot || 0.0,
     Sides: ["All"],
     Categories: ["Player"],
+    CorePointId: 0,
     Infiltration: entrypoints[0] || "",
     DelayToCanSpawnSec: 3,
     ColliderParams: {
@@ -68,6 +69,7 @@ export const createExitPoint =
     return {
       Name: name,
       EntryPoints: entrypoints.join(","),
+      EventAvailable: true,
       Chance: 100,
       Count: 0,
       Id: "",
@@ -196,18 +198,4 @@ export const isJaegerIntroQuestCompleted = (pmc: IPmcData): boolean => {
           (quest as any).status === "Success") // compatibility with aki 3.1.x
     )
   );
-};
-
-const isModLoaded = (modLoader: PreAkiModLoader, modId: string): boolean => {
-  const loadedModName = Object.keys(modLoader.imported).find(
-    (modName) => modLoader.imported[modName].name === modId
-  );
-
-  return Boolean(loadedModName);
-};
-
-const LUAS_CSP_MOD_ID = "CustomSpawnPoints";
-
-export const isLuasCSPModLoaded = (modLoader: PreAkiModLoader): boolean => {
-  return isModLoaded(modLoader, LUAS_CSP_MOD_ID);
 };

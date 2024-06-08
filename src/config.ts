@@ -11,6 +11,7 @@ type ByMap<T> = {
   shoreline: T;
   lighthouse: T;
   tarkovstreets: T;
+  sandbox: T;
 };
 
 export type MapName = keyof ByMap<unknown>;
@@ -74,7 +75,7 @@ type InsuranceConfig = {
 };
 
 type RepairConfig = {
-  quality?: string;
+  quality?: number;
   currency?: string;
   currency_coefficient?: number;
   repair_price_coef?: number;
@@ -170,4 +171,5 @@ export const MAPLIST = [
   "shoreline",
   "woods",
   "tarkovstreets",
+  "sandbox", // ground zero
 ];
