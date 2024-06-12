@@ -7,7 +7,7 @@
   "hideout_multistash_enabled": true,
   "vanilla_exfils_requirements": false,
   "laboratory_access_restriction": true,
-  "laboratory_access_via": ["Car"],
+  "laboratory_access_via": ["Car", "UnderpasstoLabs", "CatacombsHangar"],
   "player_scav_move_offraid_position": false,
   "workbench_always_enabled": true,
   "bypass_keep_found_in_raid_tweak": false,
@@ -68,6 +68,16 @@
       "id": "PathToTarkov_Car_stash",
       "size": 16,
       "access_via": ["Car"]
+    },
+    {
+      "id": "PathToTarkov_Evac_stash",
+      "size": 20,
+      "access_via": ["StreetsEvac"]
+    },
+    {
+      "id": "PathToTarkov_BasementDescent_stash",
+      "size": 20,
+      "access_via": ["EmercomToKlimov"]
     },
     {
       "id": "PathToTarkov_LHPath",
