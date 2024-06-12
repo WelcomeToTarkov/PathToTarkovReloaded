@@ -2,10 +2,10 @@
   "name": "path-to-tarkov-reloaded",
   "displayName": "Path To Tarkov Reloaded",
   "fullName": "Trap-RockaHorse-PathToTarkov-Reloaded",
-  "version": "5.0.0",
+  "version": "5.2.6",
   "main": "src/mod.js",
   "license": "MIT",
-  "author": "Trap.RockaHorse",
+  "author": "Trap.RockaHorse.WTT",
   "akiVersion": "3.8.x",
   "scripts": {
     "gather:external:resources": "node ./scripts/gather-external-resources.js && npm run prettier",
