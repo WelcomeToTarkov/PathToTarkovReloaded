@@ -22,20 +22,25 @@ const getEmptyRaidCache = (): RaidCache => ({
 });
 
 export class EventWatcher {
-  private raidCache: RaidCache;
+  private raidCaches: Record<string, RaidCache> = {};
   private endOfRaidCallback: EndOfRaidCallback | null = null;
 
-  constructor(private ptt: PTTInstance) {
-    this.raidCache = getEmptyRaidCache();
-  }
+  constructor(private ptt: PTTInstance) {}
 
-  private cleanRaidCache(): void {
-    this.raidCache = getEmptyRaidCache();
+  private cleanRaidCache(sessionId: string): void {
+    this.raidCaches[sessionId] = getEmptyRaidCache();
   }
 
   private initRaidCache(sessionId: string): void {
-    this.cleanRaidCache();
-    this.raidCache.sessionId = sessionId;
+    this.cleanRaidCache(sessionId);
+    this.raidCaches[sessionId].sessionId = sessionId;
+  }
+
+  private getRaidCache(sessionId: string): RaidCache {
+    if (!this.raidCaches[sessionId]) {
+      this.initRaidCache(sessionId);
+    }
+    return this.raidCaches[sessionId];
   }
 
   private watchOnGameStart(staticRoutePeeker: StaticRoutePeeker): void {
@@ -82,9 +87,8 @@ export class EventWatcher {
     staticRoutePeeker.watchRoute(
       "/client/raid/configuration",
       (url, info: { location: string }, sessionId) => {
-        this.initRaidCache(sessionId);
-
-        this.raidCache.currentLocationName = info.location;
+        const raidCache = this.getRaidCache(sessionId);
+        raidCache.currentLocationName = info.location;
 
         this.ptt.debug(
           `offline raid started on location '${info.location}' with sessionId '${sessionId}'`
@@ -96,20 +100,21 @@ export class EventWatcher {
   private watchSave(staticRoutePeeker: StaticRoutePeeker): void {
     staticRoutePeeker.watchRoute(
       "/raid/profile/save",
-      (url, info: { isPlayerScav: boolean }) => {
-        this.raidCache.saved = true;
-        this.raidCache.isPlayerScav = info.isPlayerScav;
+      (url, info: { isPlayerScav: boolean }, sessionId) => {
+        const raidCache = this.getRaidCache(sessionId);
+        raidCache.saved = true;
+        raidCache.isPlayerScav = info.isPlayerScav;
 
         this.ptt.debug(
           `profile saved: raidCache.isPlayerScav=${info.isPlayerScav}`
         );
 
-        if (!this.raidCache.endOfRaid) {
+        if (!raidCache.endOfRaid) {
           this.ptt.debug("end of raid: callback execution delayed...");
           return;
         }
 
-        return this.runEndOfRaidCallback();
+        return this.runEndOfRaidCallback(sessionId);
       }
     );
   }
@@ -118,33 +123,35 @@ export class EventWatcher {
     staticRoutePeeker.watchRoute(
       "/client/match/offline/end",
       (url, info: { exitName: string | null }, sessionId: string) => {
-        this.raidCache.endOfRaid = true;
-        this.raidCache.sessionId = sessionId;
-        this.raidCache.exitName = info.exitName;
+        const raidCache = this.getRaidCache(sessionId);
+        raidCache.endOfRaid = true;
+        raidCache.sessionId = sessionId;
+        raidCache.exitName = info.exitName;
 
         this.ptt.debug(`end of raid detected for exit '${info.exitName}'`);
 
-        if (!this.raidCache.saved) {
+        if (!raidCache.saved) {
           this.ptt.debug(
             "end of raid: callback execution delayed on profile save..."
           );
           return;
         }
 
-        return this.runEndOfRaidCallback();
+        return this.runEndOfRaidCallback(sessionId);
       }
     );
   }
 
-  private getEndOfRaidPayload(): EndOfRaidPayload {
+  private getEndOfRaidPayload(sessionId: string): EndOfRaidPayload {
+    const raidCache = this.getRaidCache(sessionId);
     const {
-      sessionId,
+      sessionId: cacheSessionId,
       currentLocationName: locationName,
       isPlayerScav,
       exitName,
-    } = this.raidCache;
+    } = raidCache;
 
-    if (sessionId === null) {
+    if (cacheSessionId === null) {
       throw new Error("raidCache.sessionId is null");
     }
 
@@ -161,22 +168,22 @@ export class EventWatcher {
     }
 
     return {
-      sessionId,
+      sessionId: cacheSessionId,
       locationName,
       isPlayerScav,
       exitName,
     };
   }
 
-  private runEndOfRaidCallback(): void {
+  private runEndOfRaidCallback(sessionId: string): void {
     if (this.endOfRaidCallback) {
       try {
-        const endOfRaidPayload = this.getEndOfRaidPayload();
+        const endOfRaidPayload = this.getEndOfRaidPayload(sessionId);
         this.endOfRaidCallback(endOfRaidPayload);
       } catch (error: any) {
         this.ptt.logger.error(`Path To Tarkov Error: ${error.message}`);
       } finally {
-        this.cleanRaidCache();
+        this.cleanRaidCache(sessionId);
       }
     } else {
       this.ptt.logger.error(
@@ -188,7 +195,7 @@ export class EventWatcher {
   public onEndOfRaid(cb: EndOfRaidCallback): void {
     if (this.endOfRaidCallback) {
       throw new Error(
-        "Path To Tarkov EventWatcher: endOfRaidCallback already setted!"
+        "Path To Tarkov EventWatcher: endOfRaidCallback already set!"
       );
     }
 
