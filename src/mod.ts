@@ -106,7 +106,8 @@ class PathToTarkov implements IPreAkiLoadMod, IPostAkiLoadMod {
       `===> Loading ${getModDisplayName(this.packageJson, true)}`
     );
   }
-
+  private modConfig = require("../config/Tooltips.json");
+  
   public postAkiLoad(container: DependencyContainer): void {
     this.container = container;
 
@@ -134,6 +135,32 @@ class PathToTarkov implements IPreAkiLoadMod, IPostAkiLoadMod {
     this.logger.success(
       `===> Successfully loaded ${getModDisplayName(this.packageJson, true)}`
     );
+
+     // get database from server
+     const databaseServer = container.resolve<DatabaseServer>("DatabaseServer");
+
+     // Get all the in-memory json found in /assets/database
+     const database = databaseServer.getTables();
+     const enLocales = database.locales.global.en;
+     const localesToChange = this.modConfig.localesToChange;
+     const localesToChangeAdditional =this.modConfig.localesToChangeAdditional;
+     const additionalLocalesToggle = this.modConfig.additionalLocalesToggle;
+     const moddedTraderExtracts = this.modConfig.moddedTraderExtracts;
+     const moddedTraderCompat = this.modConfig.moddedTraderCompat;
+            
+     for (let i = 0; i < localesToChange.length; i += 2){
+         enLocales[localesToChange[i]] = localesToChange[i+1];
+     }
+     if (additionalLocalesToggle){
+         for (let i = 0; i < localesToChangeAdditional.length; i += 2){
+             enLocales[localesToChangeAdditional[i]] = localesToChangeAdditional [i+1];
+         }
+     }
+     if (moddedTraderCompat){
+         for (let i = 0; i < moddedTraderExtracts.length; i += 2){
+             enLocales[moddedTraderExtracts[i]] = moddedTraderExtracts [i+1];
+         }
+     }
   }
 }
 

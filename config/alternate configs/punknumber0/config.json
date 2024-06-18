@@ -1,7 +1,7 @@
 {
   "enabled": true,
-  "debug": true,
-  "initial_offraid_position": "PlayerHideout",
+  "debug": false,
+  "initial_offraid_position": "Car",
   "reset_offraid_position_on_player_die": true,
   "traders_access_restriction": true,
   "hideout_multistash_enabled": true,
@@ -12,7 +12,7 @@
   "workbench_always_enabled": true,
   "bypass_keep_found_in_raid_tweak": false,
   "bypass_uninstall_procedure": false,
-  "bypass_luas_custom_spawn_points_tweak": false,
+  "bypass_luas_custom_spawn_points_tweak": true,
   "restrictions_in_raid": {
     "5449016a4bdc2d6f028b456f": {
       "// type = roubles": true,
@@ -62,23 +62,9 @@
       ]
     }
   },
-  "hideout_main_stash_access_via": ["PlayerHideout", "TherapistHideout"],
+  "hideout_main_stash_access_via": ["PlayerHideout", "TherapistHideout", "Car"],
   "hideout_secondary_stashes": [
-    {
-      "id": "PathToTarkov_Car_stash",
-      "size": 16,
-      "access_via": ["Car"]
-    },
-    {
-      "id": "PathToTarkov_Evac_stash",
-      "size": 20,
-      "access_via": ["StreetsEvac"]
-    },
-    {
-      "id": "PathToTarkov_BasementDescent_stash",
-      "size": 20,
-      "access_via": ["EmercomToKlimov"]
-    },
+
     {
       "id": "PathToTarkov_LHPath",
       "size": 8,
@@ -212,7 +198,7 @@
       "location_description": {
         "ch": "Between woods and factory",
         "cz": "Between woods and factory",
-        "en": "Between woods and factory",
+        "en": "Factory Gate to Gate 0 or take the Car",
         "es-mx": "Between woods and factory",
         "es": "Between woods and factory",
         "fr": "Entre les bois et l'usine",
@@ -225,7 +211,7 @@
         "po": "Between woods and factory",
         "ru": "Между лесом и заводом"
       },
-      "access_via": ["WoodsFactoryGate"]
+      "access_via": ["WoodsFactoryGate", "Car"]
     },
     "54cb57776803fa99248b456e": {
       "// Trader name": "Therapist",
@@ -233,7 +219,7 @@
       "location_description": {
         "ch": "在 “地面零点 ”的拾荒者营地",
         "cz": "V táboře mrchožroutů v Ground Zero",
-        "en": "In the Scav Camp at Ground Zero",
+        "en": "In the Scav Camp at Ground Zero or take the Car",
         "es-mx": "En el campamento de carroñeros de la Zona Cero",
         "es": "En el campamento de carroñeros de la Zona Cero",
         "fr": "Dans le camp de scav à Ground Zero",
@@ -246,7 +232,7 @@
         "po": "No Campo de Escavação no Ground Zero",
         "ru": "В лагере диких на эпицентре"
       },
-      "access_via": ["TherapistHideout"]
+      "access_via": ["TherapistHideout", "Car"]
     },
     "5a7c2eca46aef81a7ca2145d": {
       "// Trader name": "Mechanic",
@@ -275,7 +261,7 @@
       "location_description": {
         "ch": "Between woods and customs",
         "cz": "Between woods and customs",
-        "en": "Between woods and customs",
+        "en": "Between Shoreline and customs next to a pier",
         "es-mx": "Between woods and customs",
         "es": "Between woods and customs",
         "fr": "Entre les bois et les douanes",
@@ -288,7 +274,7 @@
         "po": "Between woods and customs",
         "ru": "Между берегом и таможней"
       },
-      "access_via": ["ShorelineCustoms"]
+      "access_via": ["ShorelineCustoms", "Boat"]
     },
     "5ac3b934156ae10c4430e83c": {
       "// Trader name": "Ragman",
@@ -296,7 +282,7 @@
       "location_description": {
         "ch": "Between interchange and customs",
         "cz": "Between interchange and customs",
-        "en": "Between interchange and customs",
+        "en": "Between interchange and customs from the Car",
         "es-mx": "Between interchange and customs",
         "es": "Between interchange and customs",
         "fr": "Entre l'échangeur et les douanes",
@@ -309,7 +295,7 @@
         "po": "Between interchange and customs",
         "ru":"Между развязкой и таможней"
       },
-      "access_via": ["StreetsEvac"]
+      "access_via": ["StreetsEvac", "Car"]
     },
     "5c0647fdd443bc2504c2d371": {
       "// Trader name": "Jaeger",
@@ -338,7 +324,7 @@
       "location_description": {
         "ch": "In boat",
         "cz": "In boat",
-        "en": "In boat",
+        "en": "Hitch a ride on the Boat or head to Un Roadblocks",
         "es-mx": "In boat",
         "es": "In boat",
         "fr": "En bateau",
@@ -352,7 +338,7 @@
         "ru": "На блокпосте ООН"
 
       },
-      "access_via": ["WoodsCustoms"]
+      "access_via": ["WoodsCustoms", "Boat"]
     },
     "579dc571d53a0658a154fbec": {
       "// Trader name": "Fence",
@@ -383,7 +369,7 @@
       "location_description": {
         "ch": "Somewhere between woods, military reserve and shoreline",
         "cz": "Somewhere between woods, military reserve and shoreline",
-        "en": "Somewhere between woods, military reserve and shoreline",
+        "en": "Checkpoint Fence and Outskirts between Reserve and Woods",
         "es-mx": "Somewhere between woods, military reserve and shoreline",
         "es": "Somewhere between woods, military reserve and shoreline",
         "fr": "Quelque part entre les bois, la base militaire et le littoral",
@@ -429,7 +415,7 @@
       "location_description": {
         "ch": "在藏身处附近的地面零点",
         "cz": "Na Ground Zero poblíž úkrytu",
-        "en": "On Ground Zero near the hideout",
+        "en": "On Ground Zero near the hideout and the Car",
         "es-mx": "Between lighthouse and shoreline",
         "es": "En la Zona Cero cerca del escondite",
         "fr": "À Ground Zero, près de la cachette",
@@ -442,7 +428,7 @@
         "po": "No Ground Zero, perto do esconderijo",
         "ru": "В эпицентре рядом с убежищем"
       },
-      "access_via": ["PlayerHideout"]
+      "access_via": ["Car"]
     },
     "ArtemTrader": {
       "// mod integration for ArtemTrader": true,
@@ -513,15 +499,15 @@
       },
       "access_via": ["MilitaryBaseRail"]
     },
-    "themachine": {
-      "// mod integration for themachine": true,
-      "// themachine is available at MilitaryBaseRail": true,
+	"PAINTERSHOP": {
+      "// mod integration for Painter": true,
+      "// Painter is available at Car": true,
       "disable_warning": true,
       "override_description": true,
       "location_description": {
         "ch": "By the military railroad",
         "cz": "By the military railroad",
-        "en": "By the military railroad",
+        "en": "Next door to your hideout",
         "es-mx": "By the military railroad",
         "es": "By the military railroad",
         "fr": "By the military railroad",
@@ -534,7 +520,53 @@
         "po": "By the military railroad",
         "ru": "Рядом с военной железной дорогой"
       },
-      "access_via": ["InterchangeCustoms"]
+      "access_via": ["Car"]
+    },
+	"Legs": {
+      "// mod integration for Legs": true,
+      "// Legs is available at Car": true,
+      "disable_warning": true,
+      "override_description": true,
+      "location_description": {
+        "ch": "By the military railroad",
+        "cz": "By the military railroad",
+        "en": "Next door to your hideout",
+        "es-mx": "By the military railroad",
+        "es": "By the military railroad",
+        "fr": "By the military railroad",
+        "ge": "By the military railroad",
+        "hu": "By the military railroad",
+        "it": "By the military railroad",
+        "jp": "By the military railroad",
+        "kr": "By the military railroad",
+        "pl": "By the military railroad",
+        "po": "By the military railroad",
+        "ru": "Рядом с военной железной дорогой"
+      },
+      "access_via": ["Car"]
+    },
+    "themachine": {
+      "// mod integration for themachine": true,
+      "// themachine is available at MilitaryBaseRail": true,
+      "disable_warning": true,
+      "override_description": true,
+      "location_description": {
+        "ch": "By the military railroad",
+        "cz": "By the military railroad",
+        "en": "Crossroads to Scav Camp and Boat",
+        "es-mx": "By the military railroad",
+        "es": "By the military railroad",
+        "fr": "By the military railroad",
+        "ge": "By the military railroad",
+        "hu": "By the military railroad",
+        "it": "By the military railroad",
+        "jp": "By the military railroad",
+        "kr": "By the military railroad",
+        "pl": "By the military railroad",
+        "po": "By the military railroad",
+        "ru": "Рядом с военной железной дорогой"
+      },
+      "access_via": ["InterchangeCustoms", "Boat"]
     }
   },
   "exfiltrations": {
@@ -760,136 +792,5 @@
       "tarkovstreets": ["Catacombs"],
       "laboratory": ["Hangar Gate"]
     }
-  },
-
-  "comment": "In the locales arrays below, even indexes (including 0) must be locale keywords, and odd indexes are the overwrite locale values.",
-  "comment": "If you are using the mode that includes the extra trader and specific trader/ stash locations, this should be set to true",
-  "comment": "If you are using the standard config, this should be set to false",
-  
-  "moddedTraderCompat": false,
-  "additionalLocalesToggle": true,
-
- "moddedTraderExtracts": [
-      "Saferoom Exfil", "Saferoom (Goblin King)",
-      "EXFIL_ZB013", "ZB-1013 Storage Bunker (Broker)"
-  ],
-
-  "localesToChangeAdditional": [
-  
-  "RUAF Roadblock", "North UN Woods(PeaceKeeper)",
-  
-  "un-sec", "RUAF Roadblock(PeaceKeeper)",
-  
-  "Road to Customs", "Road to Customs to Customs, SniperRoadblock(Skier)",
-  
-  "Sniper Roadblock", "Sniper Roadblock to Shoreline, Road to Customs(Skier)",
-  
-  "Smuggler's Boat", "Shoreline,Woods,Lighthouse(Machine,Artem,Jaeger)",
-  
-  "PP Exfil", "Car (Home,Prapor,Therapist,Rag,Jae,Harry)",
-  
-  "South V-Ex", "Car (Home,Prapor,Therapist,Rag,Jae,Harry)",
-  
-  "Dorms V-Ex", "Car (Home,Prapor,Therapist,Rag,Jae,Harry)",
-  
-  " V-Ex_light", "Car (Home,Prapor,Therapist,Rag,Jae,Harry)",
-  
-  "Pier Boat", "Boat (Machine,Artem,Peace)",
-  
-  "The Boat", "Boat (Machine,Artem,Peace)",
-  
-  "Smuggler's Boat", "Boat (Machine,Artem,Peace)",
-  
-  "Gate 0", "WoodsFactoryGate (Prapor)",
-  
-  "WoodsFactoryGate", "Gate 0 (Prapor)",
-  
-  "Hole Exfil", "Crossroads (The Machine)",
-  
-  "Crossroads", "Hole Exfil (The Machine)",
-  
-  "ZB-1012", "ZB-1012 to Factory, Med tent gate(Mechanic)",
-  
-  "ZB-1011", "Zb-1011 to Factory, Cellars(Mechanic)",
-  
-  "ZB-1013", "ZB-1013 to Factory, Gate 3(Mechanic)",
-  
-  "ZB-1014", "ZB-1014 to Factory, Gate 3(Mechanic)",
-  
-  "Outskirts", "Outskirts to Reserve and Shoreline (Priscillu)",
-  
-  "Checkpoint Fence", "Checkpoint Fence to Woods and Shoreline (Priscillu)"
-  
-  ],
-  
-  "localesToChange": [
-      "Gate 0", "Gate 0 (to Customs, Old Gas Gate)",
-      "Gate 3", "Gate 3 (to Customs, Factory Far Corner)",
-      "Gate m", "Medical Tent (to Woods, Factory Gate)",
-  
-      "Outskirts Water", "Northern Bridge (to Streets, Car)",
-      "South V-Ex", "Bridge Car (to Streets, Car)",
-      "un-sec", "N. UN Roadblock (to Customs, RUAF)",
-      "UN Roadblock", "UN Roadblock (to Customs, RUAF)",
-      "Factory gate", "Factory Gate (to Factory, Med Tent)",
-      "Outskirts", "Outskirts (to Lighthouse, N. Checkpoint)",
-  
-      "Old Azs Gate", "Old Gas Gate (to Factory, Gate 0)",
-      "Factory Far Corner", "Factory Far Corner (to Factory, Gate 3)",
-      "RUAF Roadblock", "RUAF Roadblock (to Woods, N. UN Roadblock)",
-      "Railroad To Tarkov", "RR to Tarkov (to Interchange, Railway)",
-      "Crossroads", "Crossroads (to Shoreline, Road to Customs)",
-      "Railroad To Port", "RR to Port (to Shoreline, Railbridge)",
-      "Railroad To Military Base", "RR to Mil Base (to Reserve, Train Station *1way)",
-      
-      "NW Exfil", "Railway (to Customs, RR to Tarkov)",
-      "PP Exfil", "Power Station Car (to Streets, Underpass)",
-      "SE Exfil", "Emercom (to Streets, Underpass)",
-  
-      "E1", "Underpass (to Interchange, Emercom)",
-      "E2", "Sewer River (to Lab, Sewage Conduit)",
-      "E4", "Evac to Mil Base (to Reserve, Checkpoint Fence)",
-      "E7_car", "Primorsky Ave Taxi (to Woods, Bridge Car)",
-      "scav_e1", "Basement Descent (to Lab, Main Elevator)",
-      "scav_e2", "Entrance to Catacombs (to Lab, Parking Gate)",
-      "scav_e3", "Vents (to Lab, Vents)", 
-      "scav_e4", "Manhole (to Reserve, Manhole)",
-  
-      "Alpinist", "Cliff Descent (to Shoreline, N. Cliffs *1way)",
-      "EXFIL_vent", "Manhole (to Streets, Manhole)",
-      "Exit4", "Checkpoint Fence (to Streets, Evac to Mil Base)",
-      "EXFIL_Bunker", "Bunker Hermetic Door (to Shoreline, Checkpoint *1way)",
-      "EXFIL_BUNKER_D2", "D-2 (to Woods, Snip er Rock Bunker *1way)",
-  
-      "Road to Customs", "Road to Customs (to Customs, Crossroads)",
-      "Pier Boat", "Pier Boat (to Lighthouse, Woods, Customs, Machine,Artem,Jaeger)",
-      "Tunnel", "Tunnel (to Lighthouse, Side Tunnel)",
-      "Lighthouse_pass", "Path to Lighthouse (... you get it)",
-      "South Fence Passage", "North Fence Passage (to Reserve, Hole in Wall *1way)",
-      "Road_at_railbridge", "Railbridge (to Customs, RR to Port)",
-  
-      "Nothern_Checkpoint", "Northern CP (to Woods, Outskirts)",
-      " V-ex_light", "Car Ride Home",
-      "Shorl_free", "Path to Shoreline (I swear if you ask)",
-      "Coastal_South_road", "Southern Road (to Shoreline, Tunnel)",
-      "Alpinist_light", "Mountain Pass (to Shoreline, Path to Shoreline)",
-      "Tunnel_Shared", "Side Tunnel (to Shoreline, Tunnel)",
-      "Scav_Hideout_at_the_grotto","Hideout at the Grotto (to Shoreline, Pier Boat)",
-  
-      "lab_Elevator_Cargo", "Cargo Elevator (to Streets, Basement)",
-      "lab_Elevator_Main", "Main Elevator (to Streets, Basement)",
-      "lab_Elevator_med", "Medical Block Elevator (to Streets, Basement)",
-      "lab_Hangar_Gate", "Hangar Gate (to Streets, Catacombs)",
-      "lab_Parking_Gate", "Parking Gate (to Streets, Catacombs)",
-      "lab_Under_Storage_Collector", "Sewage Conduit (to Streets, Sewer River)",
-      "lab_Vent", "Vents (to Streets, Vents)",
-
-      "5a7c2eca46aef81a7ca2145d Location", "",
-      "5ac3b934156ae10c4430e83c Location", "",
-      "54cb50c76803fa8b248b4571 Location", "",
-      "54cb57776803fa99248b456e Location", "",
-      "58330581ace78e27b8b10cee Location", "",
-      "5935c25fb3acc3127c3d8cd9 Location", "",
-      "5c0647fdd443bc2504c2d371 Location", ""
-      ]
+  }
 }
